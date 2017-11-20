@@ -192,6 +192,7 @@
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Grafico.cshtml" />
+    <Content Include="Views\Home\Graficonaonumerico.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
