@@ -5,35 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8>
     <meta name="viewport" content="width=device-width, initial-scale=0.48">
 </head>
-<body onload="init();">
+<body>
     <!-- Canvas -->
     <div>
-        <canvas width="700" height="700" id="Grafico">
+        <canvas width="900" height="900" id="Grafico">
             Browser não suportado...
         </canvas>
     </div>
-
-    <div>
-        <!-- Bot?es - TESTE -->
-        <!--<div>
-
-            <button id="btnClearAll" style="color:black; width: 110px; height: 50px; font-size: 15px" onclick="funcaoClearAll()">Clear All</button>
-            <button id="btnClearLabels" style="color:black; width: 110px; height: 50px; font-size: 15px" onclick="funcaoClearLabels()">Clear Labels</button>
-            <button id="btnClearPie" style="color:black; width: 110px; height: 50px; font-size: 15px" onclick="funcaoClearPie()">Clear pie</button>
-            <button id="btnDrawBackground" style="color:black; width: 110px; height: 50px; font-size: 15px" onclick="funcaoDrawBackground()">Background</button>
-            <button id="btnShowLabels" style="color:black; width: 110px; height: 50px; font-size: 15px" onclick="funcaoShowLabels()">Show Labels</button>
-            <button id="btnOutlinePie" style="color:darkgreen; width: 110px; height: 50px; font-size: 15px" onclick="funcaoOutlinePie()">Outline</button>
-        </div>
-        <br />
-        <div>
-
-            <button id="btnRandomPie" style="color:darkblue; width: 110px; height: 50px; font-size: 15px" onclick="funcaoRandomPie()">Random</button>
-            <button id="btnFlipFlopPie" style="color:darkblue; width: 110px; height: 50px; font-size: 15px" onclick="funcaoFlipFlopPie()">-> 45/95 %</button>
-            <button id="btnHalfPie" style="color:darkblue; width: 110px; height: 50px; font-size: 15px" onclick="funcaoHalfPie()">-> 50%</button>
-            <button id="btnFullPie" style="color:darkblue; width: 110px; height: 50px; font-size: 15px" onclick="funcaoFullPie()">-> 100%</button>
-            <button id="btnShowPerc" style="color:darkblue; width: 110px; height: 50px; font-size: 15px" onclick="funcaoShowPerc()">Show %</button>
-            <button id="btnRotatePie" style="color:darkred; width: 110px; height: 50px; font-size: 15px" onclick="funcaoRotatePie()">Rotate</button>
-        </div>-->
+    
+    
+       
+           
         <!-- Script -->
         <script type="text/javascript">
             function init() {
@@ -90,75 +72,7 @@
             var primeRadius = -1;
 
             var rotating = false;
-
-            //var encerrado=false;
-
-            // -----------------------------------------------------------  EVENTOS MOUSE:
-            /*   rodaCanvas.addEventListener("mousemove", function (event) {
-                   if (!rotating)
-                       funcaoMouseMove(event);
-               });*/
-
-            rodaCanvas.addEventListener("mousedown", function (event) {
-                if (!rotating)
-                    funcaoMouseDown(event);
-            });
-
-            rodaCanvas.addEventListener("mouseup", function (event) {
-                funcaoMouseUp(event);
-            });
-
-            rodaCanvas.onmouseout = function () { funcaoMouseOut(); };
-
-            // -----------------------------------------------------------  EVENTOS TOUCH:
-            rodaCanvas.addEventListener('touchstart', function (e) {
-                if (!moving) {
-                    if (e.touches.length === 1 && e.targetTouches.length === 1) {
-                        var touchobj = e.changedTouches[0];                 // reference first touch point (ie: first finger)
-                        touchX = parseInt(touchobj.clientX);                // get x position of touch point relative to left edge of browser
-                        touchY = parseInt(touchobj.clientY);                // get y position of touch point relative to top edge of browser
-                        ResizeSlice(parseInt(touchX), touchY);
-                    }
-                }
-            }, false);
-
-            rodaCanvas.addEventListener('touchmove', function (e) {
-                if (moving) {
-                    if (e.touches.length === 1 && e.targetTouches.length === 1) {
-                        var touchobj = e.changedTouches[0];             // reference first touch point for this event
-                        tX = parseInt(touchobj.clientX);                // get x position of touch point relative to left edge of browser
-                        tY = parseInt(touchobj.clientY);                // get y position of touch point relative to top edge of browser
-                        ResizeSlice(tX, tY);
-                        e.preventDefault();
-                    }
-                }
-            }, false);
-
-            rodaCanvas.addEventListener('touchend', function (e) {
-                if (moving) {
-                    myPie.PieLabels(labelColor, false);                 // draw
-                    var touchobj = e.changedTouches[0];                 // reference first touch point for this event
-
-                    // Cnacel resize:
-                    primeSlice = -1;
-                    primeValue = -1;
-                    primeRadius = -1;
-                    moving = false;
-                }
-            }, false);
-
-            rodaCanvas.addEventListener('touchleave', function (e) {
-                if (moving) {
-                    myPie.PieLabels(labelColor, false);                 // draw
-                    var touchobj = e.changedTouches[0];                 // reference first touch point for this event
-
-                    // Cnacel resize:
-                    primeSlice = -1;
-                    primeValue = -1;
-                    primeRadius = -1;
-                    moving = false;
-                }
-            }, false);
+            
 
             // ------------------------------------------------- Inicial values, labels, colors and angles:
 
@@ -213,11 +127,11 @@
                 "slice2": "Professor de Nível Superior na Educação Infantil",
                 "slice3": "Mecânico de Manutenção de Máquinas",
                 "slice4": "Atendente Comercial",
-                "slice5": "Eletricista de Instalações de Edifícios",
+                "slice5": "Leiturista",
                 "slice6": "Topógrafo",
                 "slice7": "Pintor de Estruturas Metálicas",
                 "slice8": "Auxiliar de Cartório",
-                "slice9": "Leiturista"
+                "slice9": "Eletricita de Edifícios"                            
             };
             var myValues = {
                 "slice0": 27.8,
@@ -225,11 +139,11 @@
                 "slice2":23.3,
                 "slice3":16.4,
                 "slice4":14.1,
-                "slice5":13.8,
+                "slice5":12.3,
                 "slice6":13,
                 "slice7":12.8,
                 "slice8":12.7,
-                "slice9":12.3 
+                "slice9": 13.8 
             };
 
             var myAngles = {
@@ -327,7 +241,7 @@
                 var labelY = pie_CenterY + label_Radius * Math.sin(labelAngle);
                 ctx.font = labelFont;
 
-                //label = angle;        // --- For tests only !
+               
 
                 var label_Width = 0;
                 var label_Height = 0;
@@ -364,108 +278,8 @@
                 ctx.fillText(label, labelX, labelY);
             }
 
-            // -----------------------------------  mouse cursor control
-            function MouseOnSlice(mouseX, mouseY) {
-                if (!moving) {
-                    var p2X = mouseX - canvasLeft;
-                    var p2Y = mouseY - canvasTop;
-                    var angulo = FindAngle(cX, cY, p1X, p1Y, cX, cY, p2X, p2Y);
-                    var radius = Math.sqrt(Math.pow(p2X - cX, 2) + Math.pow(p2Y - cY, 2));
-                    var slice = Math.trunc(angulo / DegreeToRadian(sweep_Angle));
-                    if (slice >= 0 && slice < pie_Slices && radius <= pie_Radius + offset)
-                        rodaCanvas.style.cursor = "pointer";
-                    else
-                        rodaCanvas.style.cursor = "default";
-                }
-            }
+            
 
-            function ResizeSlice(mouseX, mouseY) {
-                // c = center of Pie (X & Y)
-                // p1 = center of Pie + pie_Radius -> X , Center of Pie -> Y
-                // p2 = mouse location (X & Y)
-                var p2X = mouseX - canvasLeft;
-                var p2Y = mouseY - canvasTop;
-                var angulo = FindAngle(cX, cY, p1X, p1Y, cX, cY, p2X, p2Y);
-                var radius = Math.sqrt(Math.pow(p2X - cX, 2) + Math.pow(p2Y - cY, 2));
-                var actualSlice = Math.trunc(angulo / DegreeToRadian(sweep_Angle));
-
-                if (actualSlice >= 0 && actualSlice < pie_Slices) {
-                    var slice = "slice" + actualSlice;
-
-                    if (primeSlice === -1 && radius <= pie_Radius + offset) {
-                        primeRadius = radius;
-                        primeValue = myValues[slice];
-                        primeSlice = actualSlice;
-
-                        labelOriginal = myLabels[slice];
-                    }
-
-                    if (actualSlice === primeSlice) {
-                        if (moving) {
-                            var spamRadius = radius - primeRadius;
-                            var spamValue = Math.trunc(spamRadius / unit_Radius);
-                            var sliceValue = primeValue + spamValue;
-                            if (sliceValue > 100) sliceValue = 100;
-                            if (sliceValue < 0) sliceValue = 0;
-                            var sliceRadius = unit_Radius * sliceValue;
-
-                            // save slice value:
-                            myValues[slice] = sliceValue;
-
-                            // clear slice:
-                            if (sliceValue <= myValues[slice]) {
-                                FillSlice(
-                                    ctx,
-                                    pie_CenterX,
-                                    pie_CenterY,
-                                    pie_Radius,
-                                    DegreeToRadian(myAngles[slice]),
-                                    DegreeToRadian(myAngles[slice] + sweep_Angle),
-                                    bgColor
-                                );
-                                DrawSlice(
-                                    ctx,
-                                    pie_CenterX,
-                                    pie_CenterY,
-                                    pie_Radius,
-                                    DegreeToRadian(myAngles[slice]),
-                                    DegreeToRadian(myAngles[slice] + sweep_Angle),
-                                    bgColor,
-                                    1
-                                );
-                            }
-
-                            // fill new slice:
-                            FillSlice(
-                                ctx,
-                                pie_CenterX,
-                                pie_CenterY,
-                                sliceRadius,
-                                DegreeToRadian(myAngles[slice]),
-                                DegreeToRadian(myAngles[slice] + sweep_Angle),
-                                myColors[slice]
-                            );
-                            DrawSlice(
-                                ctx,
-                                pie_CenterX,
-                                pie_CenterY,
-                                sliceRadius,
-                                DegreeToRadian(myAngles[slice]),
-                                DegreeToRadian(myAngles[slice] + sweep_Angle),
-                                bgColor,     //myColors[slice]
-                                1
-                            );
-
-                            // draw label (%):
-                            label = myValues[slice] + "%";
-                            DrawLabel(ctx, slice, label, bgColor);  // clear
-                            DrawLabel(ctx, slice, label, "DarkRed");    // draw
-                        }
-
-                        moving = true;
-                    }
-                }
-            }
 
             function PieBackup() {
                 var slice = 0;
@@ -515,8 +329,7 @@
                 };
 
                 this.DrawBackground = function (color) {
-                    // draw canvas border:
-                    DrawRect(ctx, this.canvas.clientLeft, this.canvas.clientTop, this.canvas.clientLeft + this.canvas.width, this.canvas.clientTop + this.canvas.height, "LightBlue");
+                    
                     // draw circle:
                     DrawArc(ctx, pie_CenterX, pie_CenterY, pie_Radius + 1.8, 0, 2 * Math.PI, color);
                 };
@@ -629,211 +442,11 @@
             myPie.ClearBackground();
             myPie.DrawBackground(outlineColor);
             myPie.PieLabels(labelColor, false);
-
-            //verificar e-mail
-            //emailVerificar();
             myPie.PieFill();
-
-            // =========================================  BUTTONS CLICS
-
-
-            function funcaoClearAll() {
-                myPie.ClearBackground();
-            }
-
-            function funcaoDrawBackground() {
-                myPie.DrawBackground(bgColor);          // clear
-                myPie.DrawBackground(outlineColor);     // draw
-            }
-
-            function funcaoShowLabels() {
-                myPie.PieLabels(labelColor, false);     // draw
-            }
-
-            function funcaoClearLabels() {
-                myPie.PieLabels(bgColor, false);        // clear
-            }
-
-
-            function funcaoClearPie() {
-                myPie.PieClear();                   // clear
-            }
-
-            function funcaoOutlinePie() {
-                myPie.PieClear();                   // clear
-                myPie.PieOutline(outlineColor);     // draw
-            }
-
-            function funcaoFullPie() {
-                for (s = pie_Slices - 1; s >= 0; s--) {
-                    slice = "slice" + s;
-                    myValues[slice] = 100;              // 100 % values
-                }
-                myPie = new Pie({
-                    canvas: rodaCanvas,
-                    value: myValues,
-                    color: myColors,
-                    label: myLabels,
-                    angle: myAngles
-                });
-                myPie.PieClear();
-                myPie.PieFill();
-                myPie.PieLabels(labelColor, false);
-            }
-
-            function funcaoHalfPie() {
-                for (s = pie_Slices - 1; s >= 0; s--) {
-                    slice = "slice" + s;
-                    myValues[slice] = 50;              // 50 % values
-                }
-                myPie = new Pie({
-                    canvas: rodaCanvas,
-                    value: myValues,
-                    color: myColors,
-                    label: myLabels,
-                    angle: myAngles
-                });
-                myPie.PieClear();
-                myPie.PieFill();
-                myPie.PieLabels(labelColor, false);
-            }
-
-            function funcaoFlipFlopPie() {
-                for (s = pie_Slices - 1; s >= 0; s--) {
-                    slice = "slice" + s;
-                    if (s % 2 === 0) myValues[slice] = 95;  // 45% ~ 95% values
-                    else myValues[slice] = 45;
-                }
-                myPie = new Pie({
-                    canvas: rodaCanvas,
-                    value: myValues,
-                    color: myColors,
-                    label: myLabels,
-                    angle: myAngles
-                });
-                myPie.PieClear();
-                myPie.PieFill();
-                myPie.PieLabels(labelColor, false);
-            }
-
-            function funcaoShowPerc() {
-                if (!rotating)
-                    myPie.PieLabels(labelColor, true);      // draw
-            }
-
-            function funcaoRotatePie() {
-                if (!rotating) {
-                    // -------
-                    // backup:
-                    // -------
-                    PieBackup();
-
-                    rotating = true;
-
-                    var RotatePie = window.setInterval(function () {
-                        // -------------------------------------
-                        // Rotate values & colors of all slices:
-                        // -------------------------------------
-                        var slice1 = "";
-                        var slice = "";
-                        var s = 0;
-                        slice = "slice" + (pie_Slices - 1);
-                        var valueExtra = myValues[slice];
-                        var colorExtra = myColors[slice];
-                        for (s = pie_Slices - 1; s > 0; s--) {
-                            slice = "slice" + s;
-                            slice1 = "slice" + (s - 1);
-                            myValues[slice] = myValues[slice1];
-                            myColors[slice] = myColors[slice1];
-                        }
-                        slice = "slice0";
-                        myValues[slice] = valueExtra;
-                        myColors[slice] = colorExtra;
-                        myPie = new Pie(
-                            {
-                                canvas: rodaCanvas,
-                                value: myValues,
-                                color: myColors,
-                                label: myLabels,
-                                angle: myAngles
-                            }
-                        );
-
-                        myPie.PieClear();
-                        myPie.PieFill();
-                    }, 85);
-
-                    id = window.setTimeout(function () {
-                        clearInterval(RotatePie);
-
-                        // --------
-                        // restore:
-                        // --------
-                        PieRestore();
-                        myPie = new Pie({
-                            canvas: rodaCanvas,
-                            value: myValues,
-                            color: myColors,
-                            label: myLabels,
-                            angle: myAngles
-                        });
-                        myPie.PieClear();
-                        myPie.PieFill();
-
-                        rotating = false;
-                    }, 4250);
-                }
-            }
-
-            // =========================================  MOUSE MOVE / CLICK:
-
-            function funcaoMouseMove(e) {
-                //if(!encerrado)
-                //{
-                if (moving)
-                    ResizeSlice(e.clientX, e.clientY);
-                else
-                    MouseOnSlice(e.clientX, e.clientY);
-                //}
-            }
-
-            function funcaoMouseDown(e) {
-                if (e.button === 0) {
-                    ResizeSlice(e.clientX, e.clientY);
-                }
-            }
-
-            function funcaoMouseUp(e) {
-                if (moving) {
-                    myPie.PieLabels(labelColor, false);     // draw
-
-                    // Cnacel resize:
-                    primeSlice = -1;
-                    primeValue = -1;
-                    primeRadius = -1;
-                    moving = false;
-                }
-            }
-
-            function funcaoMouseOut() {
-                if (moving) {
-                    myPie.PieLabels(labelColor, false);     // draw
-
-                    // Cnacel resize:
-                    primeSlice = -1;
-                    primeValue = -1;
-                    primeRadius = -1;
-                    moving = false;
-                }
-            }
-
-
-
-
-
+            
 
             // ==========================================================================================   END SCRIPT
         </script>
-        <!--  <script type="text/javascript" src="RodaDaVida.js" charset="ISO-8859-1"></script>-->
+     
 </body>
 </html>
